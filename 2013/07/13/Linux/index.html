@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Linux 环境搭建 | Hexo</title>
+  <meta name="description" content="更换清华源1234sudo apt-get install vimsudo cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.baksudo vim &#x2F;etc&#x2F;apt&#x2F;sources.listsudo apt-get update &amp;&amp; sudo apt-get upgrade 12345678deb https:&#x2F;&#x2F;mirrors.tu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 环境搭建">
+<meta property="og:url" content="https://example.com/2013/07/13/Linux/index.html">
+<meta property="og:site_name" content="WanLei">
+<meta property="og:description" content="更换清华源1234sudo apt-get install vimsudo cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.baksudo vim &#x2F;etc&#x2F;apt&#x2F;sources.listsudo apt-get update &amp;&amp; sudo apt-get upgrade 12345678deb https:&#x2F;&#x2F;mirrors.tu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/28005866/1685950543240-f5e8cfec-6415-4542-915f-44cfd197b14d.png#averageHue=%23fefefe&clientId=u16afd352-dad6-4&from=paste&height=361&id=uf5c8ee3f&originHeight=542&originWidth=1339&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=116029&status=done&style=none&taskId=ubaab0394-b28e-4146-a624-f646439f655&title=&width=892.6666666666666">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/jpeg/28005866/1685951541346-7cbce220-1992-4683-8fd3-1e67333d2372.jpeg#averageHue=%233a3a3a&clientId=u16afd352-dad6-4&from=paste&height=274&id=u5027f59b&originHeight=411&originWidth=453&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=43042&status=done&style=none&taskId=u6b92e61e-1782-4061-9649-23dc87df4e3&title=&width=302">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/28005866/1687669857862-f10a8b13-8ea0-49cc-a37b-accb029e06d2.png#averageHue=%23b0aeae&clientId=u78c7db5d-51ea-4&from=paste&height=559&id=ua3034129&originHeight=1118&originWidth=1940&originalType=binary&ratio=2&rotation=0&showTitle=false&size=166588&status=done&style=none&taskId=ue6c059ad-81df-4ae7-a286-9d07e6f3515&title=&width=970">
+<meta property="article:published_time" content="2013-07-13T12:46:25.000Z">
+<meta property="article:modified_time" content="2023-07-09T13:21:12.200Z">
+<meta property="article:author" content="WanLei">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2023/png/28005866/1685950543240-f5e8cfec-6415-4542-915f-44cfd197b14d.png#averageHue=%23fefefe&clientId=u16afd352-dad6-4&from=paste&height=361&id=uf5c8ee3f&originHeight=542&originWidth=1339&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=116029&status=done&style=none&taskId=ubaab0394-b28e-4146-a624-f646439f655&title=&width=892.6666666666666">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://example.com/2013/07/13/Linux/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="WanLei" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/wanleimk" target="_blank">
+          <img class="img-circle img-rotate" src="/images/header.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">WanLei</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">IC Engineer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> BeiJing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/wanleimk" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">七月 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2013/07/13/Linux/" class="title">Linux 环境搭建</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2013-07-13T12:46:25.000Z" itemprop="datePublished">2013-07-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2013/07/13/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2013-07-13T12:46:25.000Z" itemprop="datePublished">2013-07-13</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Linux" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux 环境搭建
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2013/07/13/Linux/" class="article-date">
+	  <time datetime="2013-07-13T12:46:25.000Z" itemprop="datePublished">2013-07-13</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2013/07/13/Linux/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="更换清华源"><a href="#更换清华源" class="headerlink" title="更换清华源"></a>更换清华源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vim</span><br><span class="line">sudo <span class="built_in">cp</span> /etc/apt/sources.list /etc/apt/sources.list.bak</span><br><span class="line">sudo vim /etc/apt/sources.list</span><br><span class="line">sudo apt-get update &amp;&amp; sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse multiverse</span><br></pre></td></tr></table></figure>
+<h2 id="配置git"><a href="#配置git" class="headerlink" title="配置git"></a>配置git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
+<p>配置用户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br><span class="line">git config --global user.name [username]</span><br><span class="line">git config --global user.email [email]</span><br></pre></td></tr></table></figure>
+<p>生成ssh秘钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
+<h2 id="安装ZSH"><a href="#安装ZSH" class="headerlink" title="安装ZSH"></a>安装ZSH</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装zsh</span></span><br><span class="line">sudo apt-get install zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 内网安装</span></span><br><span class="line"><span class="comment"># 下载文件</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/ohmyzsh/ohmyzsh</span><br><span class="line"><span class="comment"># 若因为网速问题，无法抵达可以用我搬运至码云的链接下载</span></span><br><span class="line">git <span class="built_in">clone</span> https://gitee.com/jasonli0012/ohmyzsh</span><br><span class="line"><span class="comment"># 赋予安装脚本可执行权限</span></span><br><span class="line"><span class="built_in">cd</span> ohmyzsh/tools</span><br><span class="line"><span class="built_in">chmod</span> +x install.sh</span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line"></span><br><span class="line">./install.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /home/ray/.oh-my-zsh</span><br><span class="line">./install.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置为默认终端</span></span><br><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+<h3 id="设置主题"><a href="#设置主题" class="headerlink" title="设置主题"></a>设置主题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置皮肤</span></span><br><span class="line">sudo gedit ~/.zshrc</span><br><span class="line">sudo vim ~/.zshrc</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line"><span class="comment"># 在文本中找到内容ZSH-THEME修改其后值为所选主题</span></span><br><span class="line"><span class="comment"># 主题目录 ~/ohmyzsh/themes</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#安装pk10</span></span><br><span class="line">git <span class="built_in">clone</span> --depth=1 https://gitee.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br><span class="line">vim ~/.zshrc</span><br><span class="line">ZSH_THEME=<span class="string">&quot;powerlevel10k/powerlevel10k&quot;</span></span><br><span class="line">ZSH_THEME=<span class="string">&quot;ys&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">den.zsh-theme                  darkblood.zsh-theme            gallois.zsh-theme              kennethreitz.zsh-theme         norm.zsh-theme                 steeef.zsh-theme</span><br><span class="line">Soliah.zsh-theme               daveverwer.zsh-theme           garyblessington.zsh-theme      kiwi.zsh-theme                 obraun.zsh-theme               strug.zsh-theme</span><br><span class="line">adben.zsh-theme                dieter.zsh-theme               gentoo.zsh-theme               kolo.zsh-theme                 peepcode.zsh-theme             sunaku.zsh-theme</span><br><span class="line">af-magic.zsh-theme             dogenpunk.zsh-theme            geoffgarside.zsh-theme         kphoen.zsh-theme               philips.zsh-theme              sunrise.zsh-theme</span><br><span class="line">afowler.zsh-theme              dpoggi.zsh-theme               gianu.zsh-theme                lambda.zsh-theme               pmcgee.zsh-theme               superjarin.zsh-theme</span><br><span class="line">agnoster.zsh-theme             dst.zsh-theme                  gnzh.zsh-theme                 linuxonly.zsh-theme            pygmalion-virtualenv.zsh-theme suvash.zsh-theme</span><br><span class="line">alanpeabody.zsh-theme          dstufft.zsh-theme              gozilla.zsh-theme              lukerandall.zsh-theme          pygmalion.zsh-theme            takashiyoshida.zsh-theme</span><br><span class="line">amuse.zsh-theme                duellj.zsh-theme               half-life.zsh-theme            macovsky-ruby.zsh-theme        random.zsh-theme               terminalparty.zsh-theme</span><br><span class="line">apple.zsh-theme                eastwood.zsh-theme             humza.zsh-theme                macovsky.zsh-theme             re5et.zsh-theme                theunraveler.zsh-theme</span><br><span class="line">arrow.zsh-theme                edvardm.zsh-theme              imajes.zsh-theme               maran.zsh-theme                refined.zsh-theme              tjkirch.zsh-theme</span><br><span class="line">aussiegeek.zsh-theme           emotty.zsh-theme               intheloop.zsh-theme            mgutz.zsh-theme                rgm.zsh-theme                  tjkirch_mod.zsh-theme</span><br><span class="line">avit.zsh-theme                 essembeh.zsh-theme             itchy.zsh-theme                mh.zsh-theme                   risto.zsh-theme                tonotdo.zsh-theme</span><br><span class="line">awesomepanda.zsh-theme         evan.zsh-theme                 jaischeema.zsh-theme           michelebologna.zsh-theme       rixius.zsh-theme               trapd00r.zsh-theme</span><br><span class="line">bira.zsh-theme                 fino-time.zsh-theme            jbergantine.zsh-theme          mikeh.zsh-theme                rkj-repos.zsh-theme            wedisagree.zsh-theme</span><br><span class="line">blinks.zsh-theme               fino.zsh-theme                 jispwoso.zsh-theme             miloshadzic.zsh-theme          rkj.zsh-theme                  wezm+.zsh-theme</span><br><span class="line">bureau.zsh-theme               fishy.zsh-theme                jnrowe.zsh-theme               minimal.zsh-theme              robbyrussell.zsh-theme         wezm.zsh-theme</span><br><span class="line">candy-kingdom.zsh-theme        flazz.zsh-theme                jonathan.zsh-theme             mira.zsh-theme                 sammy.zsh-theme                wuffers.zsh-theme</span><br><span class="line">candy.zsh-theme                fletcherm.zsh-theme            josh.zsh-theme                 mortalscumbag.zsh-theme        simonoff.zsh-theme             xiong-chiamiov-plus.zsh-theme</span><br><span class="line">clean.zsh-theme                fox.zsh-theme                  jreese.zsh-theme               mrtazz.zsh-theme               simple.zsh-theme               xiong-chiamiov.zsh-theme</span><br><span class="line">cloud.zsh-theme                frisk.zsh-theme                jtriley.zsh-theme              murilasso.zsh-theme            skaro.zsh-theme                ys.zsh-theme</span><br><span class="line">crcandy.zsh-theme              frontcube.zsh-theme            juanghurtado.zsh-theme         muse.zsh-theme                 smt.zsh-theme                  zhann.zsh-theme</span><br><span class="line">crunch.zsh-theme               funky.zsh-theme                junkfood.zsh-theme             nanotech.zsh-theme             sonicradish.zsh-theme</span><br><span class="line">cypher.zsh-theme               fwalch.zsh-theme               kafeitu.zsh-theme              nebirhos.zsh-theme             sorin.zsh-theme</span><br><span class="line">dallas.zsh-theme               gallifrey.zsh-theme            kardan.zsh-theme               nicoulaj.zsh-theme             sporty_256.zsh-theme</span><br></pre></td></tr></table></figure>
+<h2 id="Linux安装搜狗输入法"><a href="#Linux安装搜狗输入法" class="headerlink" title="Linux安装搜狗输入法"></a>Linux安装搜狗输入法</h2><h3 id="安装fcitx"><a href="#安装fcitx" class="headerlink" title="安装fcitx"></a>安装fcitx</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install fcitx</span><br></pre></td></tr></table></figure>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a><a target="_blank" rel="noopener" href="https://shurufa.sogou.com/linux">下载</a></h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i sogoupinyin_版本号_amd64.deb</span><br></pre></td></tr></table></figure>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libqt5qml5 libqt5quick5 libqt5quickwidgets5 qml-module-qtquick2</span><br><span class="line">sudo apt install libgsettings-qt1</span><br></pre></td></tr></table></figure>
+<h2 id="安装谷歌浏览器"><a href="#安装谷歌浏览器" class="headerlink" title="安装谷歌浏览器"></a>安装谷歌浏览器</h2><h3 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a><a target="_blank" rel="noopener" href="https://www.google.cn/chrome/index.html">下载</a></h3><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i google-chrome-stable_current_amd64.deb</span><br></pre></td></tr></table></figure>
+<h2 id="安装Clash，科学上网"><a href="#安装Clash，科学上网" class="headerlink" title="安装Clash，科学上网"></a>安装Clash，科学上网</h2><h3 id="下载Linux-X64版本的Clash，下载地址"><a href="#下载Linux-X64版本的Clash，下载地址" class="headerlink" title="下载Linux X64版本的Clash，下载地址"></a>下载Linux X64版本的Clash，<a target="_blank" rel="noopener" href="https://github.com/Fndroid/clash_for_windows_pkg/releases">下载地址</a></h3><p><img src="https://cdn.nlark.com/yuque/0/2023/png/28005866/1685950543240-f5e8cfec-6415-4542-915f-44cfd197b14d.png#averageHue=%23fefefe&clientId=u16afd352-dad6-4&from=paste&height=361&id=uf5c8ee3f&originHeight=542&originWidth=1339&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=116029&status=done&style=none&taskId=ubaab0394-b28e-4146-a624-f646439f655&title=&width=892.6666666666666" alt="image.png"></p>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zvxf 安装包</span><br></pre></td></tr></table></figure>
+<h3 id="运行cwf，启动-clash-for-windows"><a href="#运行cwf，启动-clash-for-windows" class="headerlink" title="运行cwf，启动 clash for windows"></a>运行cwf，启动 clash for windows</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsid ./cwf</span><br></pre></td></tr></table></figure>
+<h3 id="导入节点"><a href="#导入节点" class="headerlink" title="导入节点"></a>导入节点</h3><h3 id="配置Ubuntu的Network-Proxy成下图所示"><a href="#配置Ubuntu的Network-Proxy成下图所示" class="headerlink" title="配置Ubuntu的Network Proxy成下图所示"></a>配置Ubuntu的Network Proxy成下图所示</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Seetings -&gt; Network -&gt; Network Proxy</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/jpeg/28005866/1685951541346-7cbce220-1992-4683-8fd3-1e67333d2372.jpeg#averageHue=%233a3a3a&clientId=u16afd352-dad6-4&from=paste&height=274&id=u5027f59b&originHeight=411&originWidth=453&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=43042&status=done&style=none&taskId=u6b92e61e-1782-4061-9649-23dc87df4e3&title=&width=302" alt="img_v2_a6d483bf-19de-433b-ab02-716fa8e5a96g.jpg"></p>
+<h3 id="关闭终端在后台运行程序"><a href="#关闭终端在后台运行程序" class="headerlink" title="关闭终端在后台运行程序"></a>关闭终端在后台运行程序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsid ./app</span><br></pre></td></tr></table></figure>
+<h2 id="安装VScode"><a href="#安装VScode" class="headerlink" title="安装VScode"></a>安装VScode</h2><h3 id="下载-2"><a href="#下载-2" class="headerlink" title="下载"></a><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/?dv=linux64_deb">下载</a></h3><h3 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i code_1<span class="number">.79</span><span class="number">.2</span><span class="number">-1686734195</span>_amd64.deb</span><br></pre></td></tr></table></figure>
+<h3 id="打开VScode"><a href="#打开VScode" class="headerlink" title="打开VScode"></a>打开VScode</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code .</span><br></pre></td></tr></table></figure>
+<h3 id="调节标题栏颜色"><a href="#调节标题栏颜色" class="headerlink" title="调节标题栏颜色"></a>调节标题栏颜色</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">设置搜索 : titlestyle</span><br><span class="line">选择： custom</span><br></pre></td></tr></table></figure>
+<h2 id="安装WPS"><a href="#安装WPS" class="headerlink" title="安装WPS"></a>安装WPS</h2><h3 id="下载-3"><a href="#下载-3" class="headerlink" title="下载"></a><a target="_blank" rel="noopener" href="https://linux.wps.cn/">下载</a></h3><h3 id="安装-3"><a href="#安装-3" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i wps-office_11.1.0.11698_amd64.deb</span><br></pre></td></tr></table></figure>
+<h2 id="安装飞书"><a href="#安装飞书" class="headerlink" title="安装飞书"></a>安装飞书</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i Feishu-linux_x64-6.1.12.deb</span><br></pre></td></tr></table></figure>
+<h2 id="安装Zotero"><a href="#安装Zotero" class="headerlink" title="安装Zotero"></a><a target="_blank" rel="noopener" href="https://www.zotero.org/support/installation">安装Zotero</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> /opt/zotero</span><br><span class="line">./set_launcher_icon</span><br><span class="line"><span class="built_in">ln</span> -s /opt/zotero/zotero.desktop ~/.local/share/applications/zotero.desktop</span><br></pre></td></tr></table></figure>
+<h2 id="安装SMPlayer播放器"><a href="#安装SMPlayer播放器" class="headerlink" title="安装SMPlayer播放器"></a>安装SMPlayer播放器</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:rvm/smplayer </span><br><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get install smplayer smplayer-themes smplayer-skins </span><br></pre></td></tr></table></figure>
+<h2 id="安装截屏软件"><a href="#安装截屏软件" class="headerlink" title="安装截屏软件"></a><a target="_blank" rel="noopener" href="https://github.com/flameshot-org/flameshot/releases/tag/v12.1.0">安装截屏软件</a></h2><h3 id="设置快捷方式"><a href="#设置快捷方式" class="headerlink" title="设置快捷方式"></a>设置快捷方式</h3><p>Settings-&gt; Keyboard Shortcuts<br><img src="https://cdn.nlark.com/yuque/0/2023/png/28005866/1687669857862-f10a8b13-8ea0-49cc-a37b-accb029e06d2.png#averageHue=%23b0aeae&clientId=u78c7db5d-51ea-4&from=paste&height=559&id=ua3034129&originHeight=1118&originWidth=1940&originalType=binary&ratio=2&rotation=0&showTitle=false&size=166588&status=done&style=none&taskId=ue6c059ad-81df-4ae7-a286-9d07e6f3515&title=&width=970" alt="image.png"></p>
+<h2 id="安装Ulauncher"><a href="#安装Ulauncher" class="headerlink" title="安装Ulauncher"></a><a target="_blank" rel="noopener" href="https://ulauncher.io/#Download">安装Ulauncher</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:agornostal/ulauncher &amp;&amp; sudo apt update &amp;&amp; sudo apt install ulauncher</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://example.com/2013/07/13/Linux/" title="Linux 环境搭建" target="_blank" rel="external">https://example.com/2013/07/13/Linux/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/wanleimk" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/header.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/wanleimk" target="_blank"><span class="text-dark">WanLei</span><small class="ml-1x">IC Engineer</small></a></h3>
+        <div>求知若饥，虚心若愚</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2013/07/13/hello-world/" title="Hello World"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/wanleimk" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2023 WanLei
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
