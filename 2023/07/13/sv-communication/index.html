@@ -17,22 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Linux安装DVT | WanLei&#39;s Blog</title>
-  <meta name="description" content="下载解压  免安装，直接复制 dvt_eclipse 到安装路径，我在 usr&#x2F; 下面新建了 app dir 1cp .&#x2F;dvt_eclipse &#x2F;usr&#x2F;app  复制 license 到 dvt_eclipse 12cd license_dircp .&#x2F;dvt.lic &#x2F;usr&#x2F;app&#x2F;dvt_eclipse&#x2F;licenses 打 jar patch 12mv ro.amiq.dv">
+  <title>SystemVerilog学习之Events、Semaphores、Mailbox | WanLei&#39;s Blog</title>
+  <meta name="description" content="Semaphores是什么？Semaphores是信号量， 可以用来控制同时访问特定资源的线程数量，通过协调各个线程，以保证合理的使用资源 为什么需要Semaphores？当多个线程访问同一资源的时候，而这个资源只允许一个线程访问的时候，就可以用Semaphores来进行控制；如果把资源比作为一个仓库的话，Semaphores就相当于一把钥匙，每个线程需要拿到钥匙后才能对资源进行访问。当然也可以有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux安装DVT">
-<meta property="og:url" content="https://wanleimk.github.io.git/2023/07/12/Linux%E5%AE%89%E8%A3%85DVT/index.html">
+<meta property="og:title" content="SystemVerilog学习之Events、Semaphores、Mailbox">
+<meta property="og:url" content="https://wanleimk.github.io.git/2023/07/13/sv-communication/index.html">
 <meta property="og:site_name" content="WanLei">
-<meta property="og:description" content="下载解压  免安装，直接复制 dvt_eclipse 到安装路径，我在 usr&#x2F; 下面新建了 app dir 1cp .&#x2F;dvt_eclipse &#x2F;usr&#x2F;app  复制 license 到 dvt_eclipse 12cd license_dircp .&#x2F;dvt.lic &#x2F;usr&#x2F;app&#x2F;dvt_eclipse&#x2F;licenses 打 jar patch 12mv ro.amiq.dv">
+<meta property="og:description" content="Semaphores是什么？Semaphores是信号量， 可以用来控制同时访问特定资源的线程数量，通过协调各个线程，以保证合理的使用资源 为什么需要Semaphores？当多个线程访问同一资源的时候，而这个资源只允许一个线程访问的时候，就可以用Semaphores来进行控制；如果把资源比作为一个仓库的话，Semaphores就相当于一把钥匙，每个线程需要拿到钥匙后才能对资源进行访问。当然也可以有">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-12T06:48:19.000Z">
-<meta property="article:modified_time" content="2023-07-12T08:34:21.690Z">
+<meta property="article:published_time" content="2023-07-13T12:12:52.000Z">
+<meta property="article:modified_time" content="2023-07-13T13:39:14.512Z">
 <meta property="article:author" content="WanLei">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="EDA">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://wanleimk.github.io.git/2023/07/12/Linux%E5%AE%89%E8%A3%85DVT/index.html">
+  <link rel="canonical" href="https://wanleimk.github.io.git/2023/07/13/sv-communication/index.html">
   
     <link rel="alternate" href="/atom.xml" title="WanLei" type="application/atom+xml">
   
@@ -300,14 +298,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Linux安装DVT" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-sv-communication" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Linux安装DVT
+      SystemVerilog学习之Events、Semaphores、Mailbox
     </h1>
   
 
@@ -315,22 +313,17 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2023/07/12/Linux%E5%AE%89%E8%A3%85DVT/" class="article-date">
-	  <time datetime="2023-07-12T06:48:19.000Z" itemprop="datePublished">2023-07-12</time>
+	<a href="/2023/07/13/sv-communication/" class="article-date">
+	  <time datetime="2023-07-13T12:12:52.000Z" itemprop="datePublished">2023-07-13</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">环境搭建</a>
+    <a class="article-category-link" href="/categories/SystemVerilog/">SystemVerilog</a>
   </span>
 
         
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/EDA/" rel="tag">EDA</a>, <a class="article-tag-link-link" href="/tags/Linux/" rel="tag">Linux</a>
-  </span>
-
 
         
 	<span class="article-read hidden-xs">
@@ -341,33 +334,25 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/07/12/Linux%E5%AE%89%E8%A3%85DVT/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/07/13/sv-communication/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 118(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 525(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <ol>
-<li><p>下载解压</p>
-</li>
-<li><p>免安装，直接复制 dvt_eclipse 到安装路径，我在 usr&#x2F; 下面新建了 app dir</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> ./dvt_eclipse /usr/app</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>复制 license 到 dvt_eclipse</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> license_dir</span><br><span class="line"><span class="built_in">cp</span> ./dvt.lic /usr/app/dvt_eclipse/licenses</span><br></pre></td></tr></table></figure></li>
-<li><p>打 jar patch</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> ro.amiq.dvt.batch-20.1.40.jar ./usr/app/dvt_eclipse/batch/ro.amiq.dvt.batch-20.1.40.jar</span><br><span class="line"><span class="built_in">mv</span> ro.amiq.dvt.flclient-2.8.jar ./usr/app/dvt_eclipse/batch/libs/ro.amiq.dvt.flclient-2.8.jar</span><br></pre></td></tr></table></figure></li>
-<li><p>设置环境变量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> DVT_HOME=/usr/app/dvt_eclipse</span><br><span class="line"><span class="built_in">export</span> DVT_LICENSE_FILE=<span class="variable">$DVT_HOME</span>/licenses/dvt.lic</span><br><span class="line"><span class="built_in">export</span> DVT_HOME=/usr/app/dvt_eclipse</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$DVT_HOME</span>/bin/:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">alias</span> dvt=<span class="string">&quot;dvt.sh &amp;&quot;</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-
+        <h2 id="Semaphores是什么？"><a href="#Semaphores是什么？" class="headerlink" title="Semaphores是什么？"></a>Semaphores是什么？</h2><p>Semaphores是信号量， 可以用来控制同时访问特定资源的线程数量，通过协调各个线程，以保证合理的使用资源</p>
+<h2 id="为什么需要Semaphores？"><a href="#为什么需要Semaphores？" class="headerlink" title="为什么需要Semaphores？"></a>为什么需要Semaphores？</h2><p>当多个线程访问同一资源的时候，而这个资源只允许一个线程访问的时候，就可以用Semaphores来进行控制；如果把资源比作为一个仓库的话，Semaphores就相当于一把钥匙，每个线程需要拿到钥匙后才能对资源进行访问。当然也可以有多把钥匙，对应同一资源可以同时被访问的最大数量。</p>
+<h2 id="怎么使用Semaphores？"><a href="#怎么使用Semaphores？" class="headerlink" title="怎么使用Semaphores？"></a>怎么使用Semaphores？</h2><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">semaphore_name<span class="variable">.new</span>() <span class="comment">// 创建信号量</span></span><br><span class="line">semaphore_name<span class="variable">.get</span>() <span class="comment">// 方法用来从信号量中获取keys,若没有获得指定数量的Keys,那么这个进程将会被堵塞住，直到获得指定数量的Keys.</span></span><br><span class="line">semaphore_name<span class="variable">.put</span>() <span class="comment">// 返还信号量中keys </span></span><br><span class="line">semaphore_name<span class="variable">.try_get</span>() <span class="comment">// 从一个信号量获取指定数量的Keys</span></span><br></pre></td></tr></table></figure>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> bridge;</span><br><span class="line">    semaphore key;<span class="comment">//声明一个旗语钥匙</span></span><br><span class="line">    <span class="keyword">function</span> <span class="keyword">new</span> ();</span><br><span class="line">        <span class="keyword">this</span><span class="variable">.key</span>=<span class="keyword">new</span>(<span class="number">4</span>);<span class="comment">//实例化1把钥匙</span></span><br><span class="line">    <span class="keyword">endfunction</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">task</span> go_on(<span class="keyword">string</span> name);</span><br><span class="line">        <span class="built_in">$display</span>(<span class="string">&quot;@%0t: %s wants to go trough the brdige&quot;</span>,<span class="built_in">$time</span>,name);</span><br><span class="line">        key<span class="variable">.get</span>();<span class="comment">//拿到钥匙</span></span><br><span class="line">        #<span class="number">1</span>ns;</span><br><span class="line">        <span class="built_in">$display</span>(<span class="string">&quot;@%0t: %s gets permission to go trough the brdige&quot;</span>,<span class="built_in">$time</span>,name);</span><br><span class="line">        #<span class="number">10</span>ns;</span><br><span class="line">    <span class="keyword">endtask</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">task</span> go_off(<span class="keyword">string</span> name);</span><br><span class="line">        <span class="built_in">$display</span>(<span class="string">&quot;@%0t: %s goes off the brdige&quot;</span>,<span class="built_in">$time</span>,name);</span><br><span class="line">        key<span class="variable">.put</span>();<span class="comment">//放回钥匙</span></span><br><span class="line">        #<span class="number">1</span>ns;</span><br><span class="line">        <span class="built_in">$display</span>(<span class="string">&quot;@%0t: %s returned the key.&quot;</span>,<span class="built_in">$time</span>,name);</span><br><span class="line">    <span class="keyword">endtask</span></span><br><span class="line"><span class="keyword">endclass</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">program</span> test;</span><br><span class="line">    bridge brg;</span><br><span class="line">    <span class="keyword">string</span> name1=<span class="string">&quot;Person1&quot;</span>;</span><br><span class="line">    <span class="keyword">string</span> name2=<span class="string">&quot;Person2&quot;</span>;</span><br><span class="line">    <span class="keyword">string</span> name3=<span class="string">&quot;Person3&quot;</span>;</span><br><span class="line">    <span class="keyword">string</span> name4=<span class="string">&quot;Person4&quot;</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">initial</span> <span class="keyword">begin</span></span><br><span class="line">    brg=<span class="keyword">new</span>();</span><br><span class="line">    <span class="keyword">fork</span> </span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">            brg<span class="variable">.go_on</span>(name1);</span><br><span class="line">            brg<span class="variable">.go_off</span>(name1);</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">            brg<span class="variable">.go_on</span>(name2);</span><br><span class="line">            brg<span class="variable">.go_off</span>(name2);</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">            brg<span class="variable">.go_on</span>(name3);</span><br><span class="line">            brg<span class="variable">.go_off</span>(name3);</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">            brg<span class="variable">.go_on</span>(name4);</span><br><span class="line">            brg<span class="variable">.go_off</span>(name4);</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">join</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endprogram</span></span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@0: Person1 wants to go trough the brdige</span><br><span class="line">@0: Person2 wants to go trough the brdige</span><br><span class="line">@0: Person3 wants to go trough the brdige</span><br><span class="line">@0: Person4 wants to go trough the brdige</span><br><span class="line">@1000: Person1 gets permission to go trough the brdige</span><br><span class="line">@1000: Person2 gets permission to go trough the brdige</span><br><span class="line">@1000: Person3 gets permission to go trough the brdige</span><br><span class="line">@1000: Person4 gets permission to go trough the brdige</span><br><span class="line">@11000: Person1 goes off the brdige</span><br><span class="line">@11000: Person2 goes off the brdige</span><br><span class="line">@11000: Person3 goes off the brdige</span><br><span class="line">@11000: Person4 goes off the brdige</span><br><span class="line">@12000: Person1 returned the key.</span><br><span class="line">@12000: Person2 returned the key.</span><br><span class="line">@12000: Person3 returned the key.</span><br><span class="line">@12000: Person4 returned the key</span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
@@ -376,7 +361,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://wanleimk.github.io.git/2023/07/12/Linux%E5%AE%89%E8%A3%85DVT/" title="Linux安装DVT" target="_blank" rel="external">https://wanleimk.github.io.git/2023/07/12/Linux安装DVT/</a>
+      <a href="https://wanleimk.github.io.git/2023/07/13/sv-communication/" title="SystemVerilog学习之Events、Semaphores、Mailbox" target="_blank" rel="external">https://wanleimk.github.io.git/2023/07/13/sv-communication/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -422,13 +407,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2023/07/12/Linux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="Linux 环境搭建"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2013/07/11/HelloWorld/" title="Hello World"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2023/07/12/Linux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="Linux 环境搭建"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
